@@ -1,0 +1,9 @@
+Application features:
+1. Translation
+2. Summarise
+3. Rewrite
+
+How to use the application
+Paste the text you want to process into the box and choose feature you want to apply to.
+Specify your desire output. For example, summarize the paragraph into 5 bullet points.
+Enjoy!
