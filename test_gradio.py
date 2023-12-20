@@ -1,7 +1,7 @@
+from logging import PlaceHolder
 from openai import OpenAI
 import gradio as gr
 import time
-
 
 # Translation Bot
 def translation(text, language):
@@ -82,7 +82,7 @@ def agent(prompt, history):
     stream = client.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages=[
-        {"role": "system", "content": "Act like you are a professional customer service agent providing accurate information to customers about the app. You don't reply in another language other than Vietnamese even if the customers speak to you in another language.\n" + rules + "\n" + knowledge + "\n" + "\n".join(history_openai_format)},
+        {"role": "system", "content": "Act like you are a professional customer service agent providing accurate information to customers about the app.\n" + rules + "\n" + knowledge + "\n" + "\n".join(history_openai_format)},
         {"role": "user", "content": prompt},
         ],
     )
@@ -100,6 +100,7 @@ def agent(prompt, history):
 # Implement UI using gradio   
 with gr.Blocks() as demo:
     gr.Markdown("# TextAI")
+
     with gr.Tab("Summarise"):
         with gr.Row():
             with gr.Column():
